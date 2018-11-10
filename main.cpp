@@ -1,26 +1,26 @@
-#define _CRT_SECURE_NO_WARNINGS
+п»ї#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include<stdio.h>
 
 using namespace std;
 
-struct List //стек
+struct List //СЃС‚РµРє
 {
 	int x;
-	List *Next; //указатель на следующий элемент
+	List *Next; //СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЃР»РµРґСѓСЋС‰РёР№ СЌР»РµРјРµРЅС‚
 };
 void Make(struct List *MyList)
 {
 	MyList = NULL;
 }
-void Push(int x, List **MyList) //Добавление в стек
+void Push(int x, List **MyList) //Р”РѕР±Р°РІР»РµРЅРёРµ РІ СЃС‚РµРє
 {
 	List *temp = new List;
 	temp->x = x;
 	temp->Next = *MyList;
 	*MyList = temp;
 }
-int CountElements(List *MyList) //Подсчет количества элементов в стеке
+int CountElements(List *MyList) //РџРѕРґСЃС‡РµС‚ РєРѕР»РёС‡РµСЃС‚РІР° СЌР»РµРјРµРЅС‚РѕРІ РІ СЃС‚РµРєРµ
 {
 	int c = 0;
 	while (MyList)
@@ -30,7 +30,7 @@ int CountElements(List *MyList) //Подсчет количества элементов в стеке
 	}
 	return c;
 }
-List * Pop(List *MyList)  //Удаление элемента стека
+List * Pop(List *MyList)  //РЈРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р° СЃС‚РµРєР°
 {
 	if (CountElements(MyList) > 0)
 	{
@@ -40,10 +40,10 @@ List * Pop(List *MyList)  //Удаление элемента стека
 		return MyList;
 	}
 	else
-		cout << "Стек пуст!" << endl;
+		cout << "РЎС‚РµРє РїСѓСЃС‚!" << endl;
 }
 
-void Show(List *MyList) //Вывод стека
+void Show(List *MyList) //Р’С‹РІРѕРґ СЃС‚РµРєР°
 {
 	if (CountElements(MyList) > 0)
 		while (MyList)
@@ -52,33 +52,33 @@ void Show(List *MyList) //Вывод стека
 			MyList = MyList->Next;
 		}
 	else
-		cout << "Стек пуст!";
+		cout << "РЎС‚РµРє РїСѓСЃС‚!";
 }
 
-bool IsEmpty(List *MyList) //Проверка на пустоту
+bool IsEmpty(List *MyList) //РџСЂРѕРІРµСЂРєР° РЅР° РїСѓСЃС‚РѕС‚Сѓ
 {
 	if (MyList == NULL) return false;
 	else
 		return true;
 }
 
-void ClearList(List *MyList)//Удаления стека
+void ClearList(List *MyList)//РЈРґР°Р»РµРЅРёСЏ СЃС‚РµРєР°
 {
 	while (MyList)
 	{
-		List *temp = MyList->Next; //Временная переменная для хранения адреса следующего элемента
+		List *temp = MyList->Next; //Р’СЂРµРјРµРЅРЅР°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ РґР»СЏ С…СЂР°РЅРµРЅРёСЏ Р°РґСЂРµСЃР° СЃР»РµРґСѓСЋС‰РµРіРѕ СЌР»РµРјРµРЅС‚Р°
 		delete MyList;
-		MyList = temp; //Меняем адрес на следующий
+		MyList = temp; //РњРµРЅСЏРµРј Р°РґСЂРµСЃ РЅР° СЃР»РµРґСѓСЋС‰РёР№
 	}
 }
-List* GetTop(List *MyList) //Получение верхнего элемента стека без его удаления
+List* GetTop(List *MyList) //РџРѕР»СѓС‡РµРЅРёРµ РІРµСЂС…РЅРµРіРѕ СЌР»РµРјРµРЅС‚Р° СЃС‚РµРєР° Р±РµР· РµРіРѕ СѓРґР°Р»РµРЅРёСЏ
 {
 	List *temp = MyList;
 	if (temp->Next != NULL)
 		return temp->Next;
 	else return temp;
 }
-void FlipFile(List **MyList) //Перевернуть файл
+void FlipFile(List **MyList) //РџРµСЂРµРІРµСЂРЅСѓС‚СЊ С„Р°Р№Р»
 {
 	FILE *fp;
 	char name1[] = "my.txt";
@@ -104,54 +104,54 @@ int main()
 	setlocale(LC_ALL, "rus");
 	List *MyList = NULL;
 	int O = 0;
-	cout << "Меню программы:" << endl;
-	cout << "Нажмите 1, чтобы создать стек" << endl;
-	cout << "Нажмите 2, чтобы добавить элемент в стек" << endl;
-	cout << "Нажмите 3, чтобы удалить элемент стека" << endl;
-	cout << "Нажмите 4, чтобы вывести информационные части стека в обратном порядке" << endl;
-	cout << "Нажмите 5, чтобы вывести количество элементов в стеке" << endl;
-	cout << "Нажмите 6, чтобы проверить стек на пустоту" << endl;
-	cout << "Нажмите 7, чтобы перевернуть файл при помощи стека" << endl;
-	cout << "Нажмите 8, чтобы удалить стек и все его элементы" << endl;
-	cout << "Нажмите 10, чтобы закрыть программу" << endl;
+	cout << "РњРµРЅСЋ РїСЂРѕРіСЂР°РјРјС‹:" << endl;
+	cout << "РќР°Р¶РјРёС‚Рµ 1, С‡С‚РѕР±С‹ СЃРѕР·РґР°С‚СЊ СЃС‚РµРє" << endl;
+	cout << "РќР°Р¶РјРёС‚Рµ 2, С‡С‚РѕР±С‹ РґРѕР±Р°РІРёС‚СЊ СЌР»РµРјРµРЅС‚ РІ СЃС‚РµРє" << endl;
+	cout << "РќР°Р¶РјРёС‚Рµ 3, С‡С‚РѕР±С‹ СѓРґР°Р»РёС‚СЊ СЌР»РµРјРµРЅС‚ СЃС‚РµРєР°" << endl;
+	cout << "РќР°Р¶РјРёС‚Рµ 4, С‡С‚РѕР±С‹ РІС‹РІРµСЃС‚Рё РёРЅС„РѕСЂРјР°С†РёРѕРЅРЅС‹Рµ С‡Р°СЃС‚Рё СЃС‚РµРєР° РІ РѕР±СЂР°С‚РЅРѕРј РїРѕСЂСЏРґРєРµ" << endl;
+	cout << "РќР°Р¶РјРёС‚Рµ 5, С‡С‚РѕР±С‹ РІС‹РІРµСЃС‚Рё РєРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ РІ СЃС‚РµРєРµ" << endl;
+	cout << "РќР°Р¶РјРёС‚Рµ 6, С‡С‚РѕР±С‹ РїСЂРѕРІРµСЂРёС‚СЊ СЃС‚РµРє РЅР° РїСѓСЃС‚РѕС‚Сѓ" << endl;
+	cout << "РќР°Р¶РјРёС‚Рµ 7, С‡С‚РѕР±С‹ РїРµСЂРµРІРµСЂРЅСѓС‚СЊ С„Р°Р№Р» РїСЂРё РїРѕРјРѕС‰Рё СЃС‚РµРєР°" << endl;
+	cout << "РќР°Р¶РјРёС‚Рµ 8, С‡С‚РѕР±С‹ СѓРґР°Р»РёС‚СЊ СЃС‚РµРє Рё РІСЃРµ РµРіРѕ СЌР»РµРјРµРЅС‚С‹" << endl;
+	cout << "РќР°Р¶РјРёС‚Рµ 10, С‡С‚РѕР±С‹ Р·Р°РєСЂС‹С‚СЊ РїСЂРѕРіСЂР°РјРјСѓ" << endl;
 	cout << endl;
 	while (O != 10)
 	{
-		cout << "Введите значение для перехода по меню: ";
+		cout << "Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ РґР»СЏ РїРµСЂРµС…РѕРґР° РїРѕ РјРµРЅСЋ: ";
 		cin >> O;
 		switch (O)
 		{
 		case 1:Make(MyList);
-			cout << "Стек создан" << endl;
+			cout << "РЎС‚РµРє СЃРѕР·РґР°РЅ" << endl;
 			break;
 		case 2:
 			for (int i = 0; i<10; i++)
 				Push(i, &MyList);
-			cout << "Элементы добавлены в стек" << endl;
+			cout << "Р­Р»РµРјРµРЅС‚С‹ РґРѕР±Р°РІР»РµРЅС‹ РІ СЃС‚РµРє" << endl;
 			break;
 		case 3:MyList = Pop(MyList);
-			cout << "Элемент стека удален" << endl;
+			cout << "Р­Р»РµРјРµРЅС‚ СЃС‚РµРєР° СѓРґР°Р»РµРЅ" << endl;
 			break;
-		case 4: cout << "Вывод стека в обратном порядке: " << endl;
+		case 4: cout << "Р’С‹РІРѕРґ СЃС‚РµРєР° РІ РѕР±СЂР°С‚РЅРѕРј РїРѕСЂСЏРґРєРµ: " << endl;
 			Show(MyList);
 			cout << endl;
 			break;
-		case 5:cout << "Количество элементов в стеке: " << CountElements(MyList) << endl;
+		case 5:cout << "РљРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ РІ СЃС‚РµРєРµ: " << CountElements(MyList) << endl;
 			break;
-		case 6: if (IsEmpty(MyList) == true) cout << "Стек не пустой" << endl;
+		case 6: if (IsEmpty(MyList) == true) cout << "РЎС‚РµРє РЅРµ РїСѓСЃС‚РѕР№" << endl;
 				else
-					cout << "Стек пустой" << endl;
+					cout << "РЎС‚РµРє РїСѓСЃС‚РѕР№" << endl;
 			break;
 		case 7:FlipFile(&MyList);
-			cout << "Файл my.txt перевернут и записан в my_new.txt" << endl;  break;
+			cout << "Р¤Р°Р№Р» my.txt РїРµСЂРµРІРµСЂРЅСѓС‚ Рё Р·Р°РїРёСЃР°РЅ РІ my_new.txt" << endl;  break;
 		case 8:ClearList(MyList);
 			MyList = NULL;
-			cout << "Стек удален" << endl;;
+			cout << "РЎС‚РµРє СѓРґР°Р»РµРЅ" << endl;;
 			break;
 		}
 		cout << endl;
 	}
 	if (!IsEmpty(MyList))
-		ClearList(MyList); //Очищаем память.
+		ClearList(MyList); //РћС‡РёС‰Р°РµРј РїР°РјСЏС‚СЊ.
 	return 0;
 }
